@@ -1,7 +1,15 @@
-<input type='file' onchange='getFile(this)'/ capture="camera" accept="image/*" multiple="multiple">
+<input type='file' onchange='getFile(this)'/ capture="camera"  id='image_file'>
 <img id='img'/>
 <script>
-  
+   function checkPlatform(){
+              if(/android/i.test(navigator.userAgent)){
+                    $("#image_file").attr('accept','image/*');
+                 
+              }
+            }
+            $(document).ready(function(){
+                 checkPlatform();
+             });
 var URL=window.URL && window.URL.createObjectURL ? window.URL :
         window.webkitURL && window.webkitURL.createObjectURL ? window.webkitURL :
             null;
