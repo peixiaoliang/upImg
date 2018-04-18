@@ -1,4 +1,11 @@
-<input type='file' onchange='getFile(this)'/ capture="camera" accept="image/png,image/jpeg,image/gif" id='image_file'  multiple>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type='file' onchange='getFile(this)'/ capture="camera" accept="image/*" id='image_file'  multiple>
 <img id='img'/>
 <script>
    function checkPlatform(){
@@ -23,3 +30,5 @@ function readBlobAsDataURL(blob, callback) {
   }
 
 </script>
+</body>
+</html>
