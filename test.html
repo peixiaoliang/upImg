@@ -1,4 +1,4 @@
-<input type='file' onchange='getFile(this)'/ capture="camera"  id='image_file'>
+<input type='file' onchange='getFile(this)'/ capture="camera" accept="image/png,image/jpeg,image/gif,image/jpg" id='image_file'>
 <img id='img'/>
 <script>
    function checkPlatform(){
@@ -7,9 +7,7 @@
                  
               }
             }
-            $(document).ready(function(){
                  checkPlatform();
-             });
 var URL=window.URL && window.URL.createObjectURL ? window.URL :
         window.webkitURL && window.webkitURL.createObjectURL ? window.webkitURL :
             null;
