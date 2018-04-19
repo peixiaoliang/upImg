@@ -1,0 +1,83 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">  
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>  
+    <title>wx</title>  
+    <script src="js/jweixin-1.0.0.js"></script>  
+    <script src="js/sha1.js"></script>  
+    <style>  
+        * {  
+            margin: 0;   
+            padding: 0;  
+            font-size: 0.04rem;  
+        }  
+        body, html {  
+            width: 100%;  
+            height: 100%;  
+        }  
+        body {  
+            height: 3rem;  
+        }  
+        .cosPhoto {  
+            max-width: 0.667rem;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <input class="takePhoto" type="button" value="拍照">  
+    <div class="txt"></div>  
+    <script>  
+    window.onload = function() {  
+        var winW = document.body.clientWidth,  
+            htmlObj = document.querySelector('html');  
+  
+        htmlObj.style.fontSize = ((winW<750) ? winW : 750) +'px';  
+  
+        var takePhoto = document.querySelector('.takePhoto');  
+        var txt = document.querySelector('.txt');  
+  
+        var jsapi_ticket = 'gtrhtrtrh-jytjytjyuykjuyhtr-werewr';  
+        var nonceStr = 'nonceStr';  
+        var timestamp = '1414587457';  
+        var url = 'http://xxxtest.html';//完整url  
+  
+        var t = 'jsapi_ticket='+ jsapi_ticket +'&noncestr='+ nonceStr +'×tamp='+ timestamp +'&url='+ url;  
+  
+        var s = new jsSHA(t, "TEXT"),  
+            signature = s.getHash("SHA-1", "HEX");  
+  
+  
+        wx.config({  
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。  
+            appId: 'tgregrefewdfewf', // 必填，公众号的唯一标识  
+            timestamp: timestamp, // 必填，生成签名的时间戳  
+            nonceStr: nonceStr, // 必填，生成签名的随机串  
+            signature: signature,// 必填，签名，见附录1  
+            jsApiList: ['chooseImage'], // 必填，需要使用的JS接口列表，所有JS接口列表见附录2  
+        });  
+  
+        wx.ready(function(){  
+            takePhoto.addEventListener('click', function() {  
+                wx.chooseImage({  
+                    //count: 1,//默认9  
+                    sizeType: ['original', 'compressed'],//可以指定是原图还是压缩图，默认二者都有  
+                    sourceType: ['camera'],//可以指定来源是相册还是相机，默认二者都有  
+                    success: function(res) {  
+                        var localIds = res.localIds;//返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片  
+                        cosPhoto.src = localIds;  
+                        txt.innerText = localIds;  
+                    },  
+                });  
+            });  
+  
+  
+              
+        });  
+  
+  
+    }  
+    </script>  
+</body>  
+</html>  
