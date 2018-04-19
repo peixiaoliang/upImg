@@ -5,7 +5,7 @@
 	<title>test2</title>
 </head>
 <body>
-	<input type='file' onchange='getFile(this)'/ accept='' capture='camera' multiple='multiple' >
+	<input type='file' onchange='getFile(this)'/ accept='' capture='camera' multiple='multiple' id='image_file'>
 <img id='img'/>
 <script src="js/jquery.min.js"></script>
 <script>
@@ -14,9 +14,9 @@
 				    //alert(navigator.userAgent);  
 				   //苹果端
 			   } else if (/(Android)/i.test(navigator.userAgent)) {
-				    alert(navigator.userAgent); 
+				    // alert(navigator.userAgent); 
 				    //安卓端
-				     $("#image_file").attr('accept','image/*');
+				   $("#image_file").attr('accept','image/*');     
 				} else {
 				   //pc端
 				};
