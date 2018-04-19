@@ -5,9 +5,16 @@
 	<title>Document</title>
 </head>
 <body>
-	<input type='file' onchange='getFile(this)'/ accept='image/*' capture='camera' multiple='multiple' >
+	<input type='file' onchange='getFile(this)'/  capture='camera' multiple='multiple' >
 <img id='img'/>
 <script>
+   function checkPlatform(){
+              if(/android/i.test(navigator.userAgent)){
+                    $("#image_file").attr('accept','image/*');
+                 
+              }
+            }
+ checkPlatform();
 var URL=window.URL && window.URL.createObjectURL ? window.URL :
         window.webkitURL && window.webkitURL.createObjectURL ? window.webkitURL :
             null;
