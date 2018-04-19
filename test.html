@@ -10,10 +10,16 @@
 <script src="js/jquery.min.js"></script>
 <script>
    function checkPlatform(){
-              if(/android/i.test(navigator.userAgent)){
-                    $("#image_file").attr('accept','image/*');
-                 
-              }
+              if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+				    //alert(navigator.userAgent);  
+				   //苹果端
+			   } else if (/(Android)/i.test(navigator.userAgent)) {
+				    alert(navigator.userAgent); 
+				    //安卓端
+				     $("#image_file").attr('accept','image/*');
+				} else {
+				   //pc端
+				};
             }
  checkPlatform();
 var URL=window.URL && window.URL.createObjectURL ? window.URL :
