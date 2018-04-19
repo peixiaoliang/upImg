@@ -32,13 +32,14 @@
     <script>  
     window.onload = function() {  
         var winW = document.body.clientWidth,  
-            htmlObj = document.querySelector('html');  
+            htmlObj = $('html');  
   
         htmlObj.style.fontSize = ((winW<750) ? winW : 750) +'px';  
   
         var takePhoto =$('.takePhoto');  
         var txt =$('.txt');  
-        wx.ready(function(){  
+        wx.ready(function(){ 
+            var takePhoto =$('.takePhoto');   
             takePhoto.click(function() { 
                 alert(1)
                //2.选择图片单个图片  
