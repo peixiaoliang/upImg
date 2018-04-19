@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">  
     <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>  
     <title>photo</title>  
+    <script src='js/jquery.min.js'></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <style>  
         * {  
@@ -35,9 +36,8 @@
   
         htmlObj.style.fontSize = ((winW<750) ? winW : 750) +'px';  
   
-        var takePhoto = document.querySelector('.takePhoto');  
-        var txt = document.querySelector('.txt');  
-  
+        var takePhoto =$('.takePhoto');  
+        var txt =$('.txt');  
         wx.ready(function(){  
             takePhoto.click(function() { 
                 alert(1)
